@@ -11,15 +11,16 @@ class NaturalResourcesCanadaExcelParser
     public static final String SHEET1 = 'Sheet1'
     public static final List<String> HEADERS = ['Species', 'EMPTY', 'Year', 'NL', 'PE', 'NS', 'NB', 'QC', 'ON', 'MB', 'SK', 'AB',
             'BC', 'YT', 'NT *a', 'NU', 'CA']
+    private static final int YEARS = 21
     public static final Map SYMBOLS = [sheet: SHEET1, offset: 910, max: 8]
-    public static final Map PINE = [sheet: SHEET1, offset: 6, max: 21, species: 'Pine']
-    public static final Map SPRUCE = [sheet: SHEET1, offset: 29, max: 21, species: 'Spruce']
-    public static final Map FIR = [sheet: SHEET1, offset: 61, max: 21, species: 'Fir']
-    public static final Map DOUGLAS_FIR = [sheet: SHEET1, offset: 84, max: 21, species: 'Douglas-fir']
-    public static final Map MISCELLANEOUS_SOFTWOODS = [sheet: SHEET1, offset: 116, max: 21, species: 'Miscellaneous softwoods']
-    public static final Map MISCELLANEOUS_HARDWOODS = [sheet: SHEET1, offset: 139, max: 21, species: 'Miscellaneous hardwoods']
-    public static final Map UNSPECIFIED = [sheet: SHEET1, offset: 171, max: 21, species: 'Unspecified']
-    public static final Map TOTAL_PLANTING = [sheet: SHEET1, offset: 194, max: 21, species: 'Total planting']
+    public static final Map PINE = [sheet: SHEET1, offset: 6, max: YEARS, species: 'Pine']
+    public static final Map SPRUCE = [sheet: SHEET1, offset: 29, max: YEARS, species: 'Spruce']
+    public static final Map FIR = [sheet: SHEET1, offset: 61, max: YEARS, species: 'Fir']
+    public static final Map DOUGLAS_FIR = [sheet: SHEET1, offset: 84, max: YEARS, species: 'Douglas-fir']
+    public static final Map MISCELLANEOUS_SOFTWOODS = [sheet: SHEET1, offset: 116, max: YEARS, species: 'Miscellaneous softwoods']
+    public static final Map MISCELLANEOUS_HARDWOODS = [sheet: SHEET1, offset: 139, max: YEARS, species: 'Miscellaneous hardwoods']
+    public static final Map UNSPECIFIED = [sheet: SHEET1, offset: 171, max: YEARS, species: 'Unspecified']
+    public static final Map TOTAL_PLANTING = [sheet: SHEET1, offset: 194, max: YEARS, species: 'Total planting']
     public static final int HEADER_OFFSET = 3
     public static final List<Map> PROVINCIAL = [PINE, SPRUCE, FIR, DOUGLAS_FIR, MISCELLANEOUS_SOFTWOODS, MISCELLANEOUS_HARDWOODS, UNSPECIFIED, TOTAL_PLANTING]
     public static final List<Map> PRIVATE_LAND = offset(PROVINCIAL, 220)
@@ -42,6 +43,7 @@ class NaturalResourcesCanadaExcelParser
             'Saskatchewan': 'SK',
             'Yukon': 'YT',
             'Canada': 'CA']
+
 
     private static List<Map> offset(List<Map> maps, int offset)
     {

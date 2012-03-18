@@ -12,7 +12,6 @@ repositories {
 
 dependencies {
     compile 'org.apache.poi:poi:3.7'
-    compile 'net.sourceforge.jexcelapi:jxl:2.6.12'
     compile 'groovychart:groovychart:100307'
     compile 'jfree:jfreechart:1.0.9'
     compile 'jfree:jcommon:1.0.9'
