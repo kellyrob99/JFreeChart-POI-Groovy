@@ -30,7 +30,6 @@ public class NaturalResourcesCanadaChartBuilderTest
         {
             file.delete()
         }
-        println file.absolutePath
         file.withWriter{Writer writer ->
             writer << html
         }

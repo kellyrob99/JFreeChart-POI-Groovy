@@ -10,7 +10,7 @@ class ExcelBuilderTest
     {
         final File data = new File(getClass().classLoader.getResource('comp_68e.xls').toURI())
         Map map = new NaturalResourcesCanadaExcelParser().convertToMap(data)
-        new File('NaturalResourcesCanadaNewSeedlings.json').withWriter {Writer writer ->
+        new File('src/test/resources/NaturalResourcesCanadaNewSeedlings.json').withWriter {Writer writer ->
             writer << new JsonBuilder(map).toPrettyString()
         }
     }
