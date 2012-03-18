@@ -11,8 +11,9 @@ class NaturalResourcesCanadaExcelParser
     public static final String SHEET1 = 'Sheet1'
     public static final List<String> HEADERS = ['Species', 'EMPTY', 'Year', 'NL', 'PE', 'NS', 'NB', 'QC', 'ON', 'MB', 'SK', 'AB',
             'BC', 'YT', 'NT *a', 'NU', 'CA']
-    private static final int YEARS = 21
     public static final Map SYMBOLS = [sheet: SHEET1, offset: 910, max: 8]
+    public static final int HEADER_OFFSET = 3
+    public static final int YEARS = 21
     public static final Map PINE = [sheet: SHEET1, offset: 6, max: YEARS, species: 'Pine']
     public static final Map SPRUCE = [sheet: SHEET1, offset: 29, max: YEARS, species: 'Spruce']
     public static final Map FIR = [sheet: SHEET1, offset: 61, max: YEARS, species: 'Fir']
@@ -21,7 +22,6 @@ class NaturalResourcesCanadaExcelParser
     public static final Map MISCELLANEOUS_HARDWOODS = [sheet: SHEET1, offset: 139, max: YEARS, species: 'Miscellaneous hardwoods']
     public static final Map UNSPECIFIED = [sheet: SHEET1, offset: 171, max: YEARS, species: 'Unspecified']
     public static final Map TOTAL_PLANTING = [sheet: SHEET1, offset: 194, max: YEARS, species: 'Total planting']
-    public static final int HEADER_OFFSET = 3
     public static final List<Map> PROVINCIAL = [PINE, SPRUCE, FIR, DOUGLAS_FIR, MISCELLANEOUS_SOFTWOODS, MISCELLANEOUS_HARDWOODS, UNSPECIFIED, TOTAL_PLANTING]
     public static final List<Map> PRIVATE_LAND = offset(PROVINCIAL, 220)
     public static final List<Map> FEDERAL = offset(PROVINCIAL, 441)
@@ -29,7 +29,8 @@ class NaturalResourcesCanadaExcelParser
     public static final List<String> SPECIES = PROVINCIAL.collect {it.species}
     public static final List<String> AREAS = HEADERS[HEADER_OFFSET..-1]
     public static final ArrayList<String> GROUPINGS = ['Provincial', 'Private Land', 'Federal', 'Total']
-    public static final Map<String, String> PROVINCE_SHORT_FORM_MAPPINGS = ['Alberta': 'AB',
+    public static final Map<String, String> PROVINCE_SHORT_FORM_MAPPINGS = [
+            'Alberta': 'AB',
             'British Columbia': 'BC',
             'Manitoba': 'MB',
             'New Brunswick': 'NB',
@@ -95,6 +96,11 @@ class NaturalResourcesCanadaExcelParser
         resultsMap
     }
 
+    /**
+     * For each header add a second following header for a 'notes' column
+     * @param strings
+     * @return expanded list of headers
+     */
     private List<String> expandHeaders(List<String> strings)
     {
         strings.collect {[it, "${it}_notes"]}.flatten()

@@ -79,11 +79,11 @@ body{
                                 Set years = (species.keySet() - 'name').collect {it as int}
                                 timeSeries(name: species.name, timePeriodClass: 'org.jfree.data.time.Year') {
                                     years.sort().each { year ->
-                                        final nl = species."$year"."$area"
+                                        final value = species."$year"."$area"
                                         //check that it's a numeric value
-                                        if (!(nl instanceof String))
+                                        if (!(value instanceof String))
                                         {
-                                            add(period: new Year(year), value: nl)
+                                            add(period: new Year(year), value: value)
                                         }
                                     }
                                 }
