@@ -56,15 +56,15 @@ class NaturalResourcesCanadaExcelParser
 
     public Map convertToMap(File data)
     {
-        final ExcelBuilder builder = new ExcelBuilder(data.absolutePath)
+        final ExcelBuilder excelReader = new ExcelBuilder(data.absolutePath)
         Map<String, String> symbolTable = [:]
-        builder.eachLine(SYMBOLS) { HSSFRow row ->
+        excelReader.eachLine(SYMBOLS) { HSSFRow row ->
             symbolTable[row.getCell(0).stringCellValue] = row.getCell(1).stringCellValue
         }
 
         final Closure collector = { Map species ->
             Map speciesMap = [name: species.species]
-            builder.eachLine(species) {HSSFRow row ->
+            excelReader.eachLine(species) {HSSFRow row ->
                 //ensure that we are reading from the correct place in the file
                 if (row.rowNum == species.offset)
                 {
