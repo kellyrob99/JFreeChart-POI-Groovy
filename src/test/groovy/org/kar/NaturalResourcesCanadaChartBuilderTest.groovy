@@ -18,7 +18,7 @@ public class NaturalResourcesCanadaChartBuilderTest
     @Test
     public void testBuildChart() throws Exception
     {
-        new NaturalResourcesCanadaChartBuilder().buildChart(new File(getClass().classLoader.getResource('NaturalResourcesCanadaNewSeedlings.json').toURI()).absolutePath, 'pages')
+        new NaturalResourcesCanadaChartBuilder().buildAllChartsByArea(new File(getClass().classLoader.getResource('NaturalResourcesCanadaNewSeedlings.json').toURI()).absolutePath, 'pages')
     }
 
     @Test
