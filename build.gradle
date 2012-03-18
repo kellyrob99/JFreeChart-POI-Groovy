@@ -1,0 +1,45 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'idea'
+
+group = 'org.kar'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.apache.poi:poi:3.7'
+    compile 'net.sourceforge.jexcelapi:jxl:2.6.12'
+    compile 'groovychart:groovychart:100307'
+    compile 'jfree:jfreechart:1.0.9'
+    compile 'jfree:jcommon:1.0.9'
+    compile 'org.codehaus.gpars:gpars:0.12'
+    groovy 'org.codehaus.groovy:groovy:1.8.6'
+    testCompile 'junit:junit:4.10'
+}
+
+
+idea {
+    module {
+        downloadJavadoc = true
+    }
+    project {
+        wildcards += ['?*.gradle']
+        jdkName = '1.6'
+        languageLevel = '1.6'
+        ipr {
+            withXml { provider ->
+                def root = provider.asNode()
+                // Use git
+                def vcsConfig = root.component.find { it.'@name' == 'VcsDirectoryMappings' }
+                vcsConfig.mapping[0].'@vcs' = 'Git'
+                // Set gradle home
+                def gradleSettings = root.appendNode('component', [name: 'GradleSettings'])
+                gradleSettings.appendNode('option', [name: 'SDK_HOME', value: gradle.gradleHomeDir.absolutePath])
+            }
+        }
+    }
+}
