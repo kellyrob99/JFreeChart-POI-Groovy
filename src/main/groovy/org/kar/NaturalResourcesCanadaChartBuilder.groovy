@@ -9,6 +9,9 @@ import com.thecoderscorner.groovychart.chart.*
 import org.jfree.chart.*
 import static org.kar.NaturalResourcesCanadaExcelParser.*
 import static groovyx.gpars.GParsPool.withPool
+import javax.swing.ImageIcon
+import java.awt.Image
+import org.jfree.ui.Align
 
 /*
  * Work Created: 12-03-17 by krobinson
@@ -51,14 +54,14 @@ body{
         name.replaceAll('\\s', '').replaceAll('\\*', '')
     }
 
-    def buildAllChartsByArea(filename, outputDirectory)
+    def buildAllChartsByArea(jsonFilename, outputDirectory)
     {
         def data
-        new File(filename).withReader {Reader reader ->
+        new File(jsonFilename).withReader {Reader reader ->
             data = new JsonSlurper().parse(reader)
         }
         assert data
-
+        Image logo = loadLogo();
         GROUPINGS.each { group ->
             withPool {
                 AREAS.eachParallel { area ->
@@ -92,7 +95,9 @@ body{
                     innerChart.addSubtitle(new TextTitle(longName))
                     innerChart.setBackgroundPaint(Color.white)
                     innerChart.plot.setBackgroundPaint(Color.lightGray.brighter())
-                    [Color.BLUE, Color.GREEN, Color.ORANGE, Color.CYAN, Color.MAGENTA, Color.BLACK, Color.RED].eachWithIndex { color, int index ->
+                    innerChart.plot.setBackgroundImageAlignment(Align.TOP_RIGHT)
+                    innerChart.plot.setBackgroundImage(logo)
+                    [Color.BLUE, Color.GREEN, Color.ORANGE, Color.CYAN, Color.MAGENTA, Color.BLACK, Color.PINK, Color.RED].eachWithIndex { color, int index ->
                         innerChart.XYPlot.renderer.setSeriesPaint(index, color)
                     }
                     def fileTitle = "$FILE_PREFIX-${title}.png"
@@ -110,6 +115,12 @@ body{
                 }
             }
         }
+    }
+
+    private Image loadLogo()
+    {
+        URL imageURL = this.getClass().getClassLoader().getResource('canadaFlag.png')
+        return new ImageIcon(imageURL).image
     }
 
     def buildHtml(inputDirectory)

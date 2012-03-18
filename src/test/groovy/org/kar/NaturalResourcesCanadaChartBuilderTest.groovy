@@ -25,7 +25,7 @@ public class NaturalResourcesCanadaChartBuilderTest
     public void testBuildHtml()
     {
         def html = new NaturalResourcesCanadaChartBuilder().buildHtml('pages')
-        File file = new File('pages', 'index.html')
+        File file = new File('pages', 'naturalResourcesCanadaSeedlingsCharts.html')
         if(file.exists())
         {
             file.delete()
