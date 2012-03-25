@@ -1,137 +1,149 @@
 <html>
-  <head>
+<head>
     <title>Number of Seedlings Planted by Ownership, Species</title>
     <style type='text/css'>
-body{
-    background-color:#b0c4de;
-}
-.area{
-    border: black solid thin;
-    padding: 10px;
-    margin: 5px;
-}
-.rounded-corners {
-     -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    border-radius: 10px;
-}
-</style>
-  </head>
-  <body>
-    <ul>
-      <div class='area rounded-corners' id='NL'>
+        body{
+            background-color:#b0c4de;
+        }
+        .area{
+            border: black solid thin;
+            padding: 10px;
+            margin: 5px;
+        }
+        .rounded-corners {
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -khtml-border-radius: 10px;
+            border-radius: 10px;
+        }
+    </style>
+    <script type='text/javascript'>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-30330100-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<ul>
+    <div class='area rounded-corners' id='NL'>
         <h2>Newfoundland and Labrador</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-NL.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-NL.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-NL.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-NL.png' />
-      </div>
-      <div class='area rounded-corners' id='PE'>
+    </div>
+    <div class='area rounded-corners' id='PE'>
         <h2>Prince Edward Island</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-PE.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-PE.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-PE.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-PE.png' />
-      </div>
-      <div class='area rounded-corners' id='NS'>
+    </div>
+    <div class='area rounded-corners' id='NS'>
         <h2>Nova Scotia</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-NS.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-NS.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-NS.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-NS.png' />
-      </div>
-      <div class='area rounded-corners' id='NB'>
+    </div>
+    <div class='area rounded-corners' id='NB'>
         <h2>New Brunswick</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-NB.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-NB.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-NB.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-NB.png' />
-      </div>
-      <div class='area rounded-corners' id='QC'>
+    </div>
+    <div class='area rounded-corners' id='QC'>
         <h2>Quebec</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-QC.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-QC.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-QC.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-QC.png' />
-      </div>
-      <div class='area rounded-corners' id='ON'>
+    </div>
+    <div class='area rounded-corners' id='ON'>
         <h2>Ontario</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-ON.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-ON.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-ON.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-ON.png' />
-      </div>
-      <div class='area rounded-corners' id='MB'>
+    </div>
+    <div class='area rounded-corners' id='MB'>
         <h2>Manitoba</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-MB.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-MB.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-MB.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-MB.png' />
-      </div>
-      <div class='area rounded-corners' id='SK'>
+    </div>
+    <div class='area rounded-corners' id='SK'>
         <h2>Saskatchewan</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-SK.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-SK.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-SK.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-SK.png' />
-      </div>
-      <div class='area rounded-corners' id='AB'>
+    </div>
+    <div class='area rounded-corners' id='AB'>
         <h2>Alberta</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-AB.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-AB.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-AB.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-AB.png' />
-      </div>
-      <div class='area rounded-corners' id='BC'>
+    </div>
+    <div class='area rounded-corners' id='BC'>
         <h2>British Columbia</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-BC.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-BC.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-BC.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-BC.png' />
-      </div>
-      <div class='area rounded-corners' id='YT'>
+    </div>
+    <div class='area rounded-corners' id='YT'>
         <h2>Yukon</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-YT.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-YT.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-YT.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-YT.png' />
-      </div>
-      <div class='area rounded-corners' id='NTa'>
+    </div>
+    <div class='area rounded-corners' id='NTa'>
         <h2>Northwest Territories</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-NTa.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-NTa.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-NTa.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-NTa.png' />
-      </div>
-      <div class='area rounded-corners' id='NU'>
+    </div>
+    <div class='area rounded-corners' id='NU'>
         <h2>Nunavut</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-NU.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-NU.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-NU.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-NU.png' />
-      </div>
-      <div class='area rounded-corners' id='CA'>
+    </div>
+    <div class='area rounded-corners' id='CA'>
         <h2>Canada</h2>
         <img src='naturalResourcesCanadaNewSeedlings-Federal-CA.png' />
         <img src='naturalResourcesCanadaNewSeedlings-PrivateLand-CA.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Provincial-CA.png' />
         <img src='naturalResourcesCanadaNewSeedlings-Total-CA.png' />
-      </div>
-    </ul>
-    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-    <script type='text/javascript'>
-        var toggleBinder = function(){
-            var $div = $(this)
-            $div.children('h2').each(function(){
-                $(this).click(function(){
-                    $div.children('img').each(function(){
-                        $(this).slideToggle(1500);
-                    });
+    </div>
+</ul>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script type='text/javascript'>
+    var toggleBinder = function(){
+        var $div = $(this)
+        $div.children('h2').each(function(){
+            $(this).click(function(){
+                $div.children('img').each(function(){
+                    $(this).slideToggle(1500);
                 });
             });
-        };
-        $('div').each(toggleBinder);
+        });
+    };
+    $('div').each(toggleBinder);
 </script>
-  </body>
+</body>
 </html>
